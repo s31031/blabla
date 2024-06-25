@@ -1,0 +1,148 @@
+public class Produkt {
+   private String nazwa;
+   private double cena;
+   private String kategoria;
+
+   // Constructor
+   public Produkt(String nazwa, double cena, String kategoria) {
+       this.nazwa = nazwa;
+       this.cena = cena;
+       this.kategoria = kategoria;
+   }
+
+   // Getters and Setters
+   public String getNazwa() {
+       return nazwa;
+   }
+
+   public void setNazwa(String nazwa) {
+       this.nazwa = nazwa;
+   }
+
+   public double getCena() {
+       return cena;
+   }
+
+   public void setCena(double cena) {
+       this.cena = cena;
+   }
+
+   public String getKategoria() {
+       return kategoria;
+   }
+
+   public void setKategoria(String kategoria) {
+       this.kategoria = kategoria;
+   }
+
+   // toString method
+   @Override
+   public String toString() {
+       return "Nazwa: [" + nazwa + "], Cena: [" + cena + "], Kategoria: [" + kategoria + "]";
+   }
+}
+
+
+public class Elektronika extends Produkt {
+   private int gwarancja;
+
+   // Constructor
+   public Elektronika(String nazwa, double cena, String kategoria, int gwarancja) {
+       super(nazwa, cena, kategoria);
+       this.gwarancja = gwarancja;
+   }
+
+   // Getter and Setter for gwarancja
+   public int getGwarancja() {
+       return gwarancja;
+   }
+
+   public void setGwarancja(int gwarancja) {
+       this.gwarancja = gwarancja;
+   }
+
+   // Method to extend warranty
+   public void przedluzGwarancje(int miesiace) {
+       this.gwarancja += miesiace;
+   }
+}
+
+
+
+public interface Sprzedawalny {
+   void sprzedaj();
+   void wyswietlProdukt();
+}
+
+public class Produkt implements Sprzedawalny {
+   // existing fields, constructors, getters, setters, and toString()
+
+   @Override
+   public void sprzedaj() {
+       System.out.println("Produkt sprzedany: " + this);
+   }
+
+   @Override
+   public void wyswietlProdukt() {
+       System.out.println(this);
+   }
+}
+
+
+
+public class BrakProduktuException extends Exception {
+   public BrakProduktuException(String message) {
+       super(message);
+   }
+}
+
+public class Sklep {
+   private int stanMagazynu;
+
+   // Constructor
+   public Sklep(int stanMagazynu) {
+       this.stanMagazynu = stanMagazynu;
+   }
+
+   // Method to add product
+   public void dodajProdukt(int ilosc) {
+       this.stanMagazynu += ilosc;
+   }
+
+   // Method to sell product
+   public void sprzedajProdukt(int ilosc) throws BrakProduktuException {
+       if (ilosc > this.stanMagazynu) {
+           throw new BrakProduktuException("Brak wystarczającej ilości produktów w magazynie.");
+       }
+       this.stanMagazynu -= ilosc;
+   }
+}
+
+
+import java.util.ArrayList;
+
+public class KoszykZakupowy {
+   private ArrayList<Produkt> produkty;
+
+   // Constructor
+   public KoszykZakupowy() {
+       this.produkty = new ArrayList<>();
+   }
+
+   // Method to add product
+   public void dodajProdukt(Produkt produkt) {
+       this.produkty.add(produkt);
+   }
+
+   // Method to remove product
+   public void usunProdukt(String nazwa) {
+       produkty.removeIf(produkt -> produkt.getNazwa().equals(nazwa));
+   }
+
+   // Method to display all products
+   public void wyswietlProdukty() {
+       for (Produkt produkt : produkty) {
+           System.out.println(produkt);
+       }
+   }
+}
