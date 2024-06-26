@@ -1,0 +1,20 @@
+public class BankAccount {
+    private String accountNumber;
+    private double balance;
+
+    public BankAccount(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public void payment(double amount) {
+        this.balance += amount;
+    }
+
+    public void payout(double amount) throws InsufficientFundsException {
+        if (amount > this.balance) {
+            throw new InsufficientFundsException("Insufficient funds");
+        }
+        this.balance -= amount;
+    }
+}
