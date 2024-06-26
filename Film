@@ -1,0 +1,50 @@
+public class Film implements Watchable {
+    private String title;
+    private String genre;
+    private int yearOfProduction;
+
+    public Film(String title, String genre, int yearOfProduction) {
+        this.title = title;
+        this.genre = genre;
+        this.yearOfProduction = yearOfProduction;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getGenre() {
+        return this.genre;
+    }
+
+    public int getYearOfProduction() {
+        return this.yearOfProduction;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setYearOfProduction(int yearOfProduction) {
+        this.yearOfProduction = yearOfProduction;
+    }
+
+    public String toString() {
+        return this.getClass().getName() + " (" + this.title + ", " + this.genre + ", " + this.yearOfProduction + ")";
+    }
+
+
+    @Override
+    public void open() {
+        System.out.println("Film opened");
+    }
+
+    @Override
+    public void pause() {
+        System.out.println("Film paused");
+    }
+}
