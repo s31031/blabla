@@ -1,0 +1,12 @@
+public class Serial extends Film {
+    private int episodesNumber;
+
+    public Serial(String title, String genre, int yearOfProduction, int episodesNumber) {
+        super(title, genre, yearOfProduction);
+        this.episodesNumber = episodesNumber;
+    }
+
+    public void addEpisode() {
+        ++this.episodesNumber;
+    }
+}
