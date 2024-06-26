@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public class FilmLibrary {
+    private ArrayList<Film> films = new ArrayList<>();
+
+    public FilmLibrary() {
+
+    }
+
+    public void add(Film film) {
+        if (films.contains(film)) {
+            throw new IllegalArgumentException("Film already exists");
+        }
+        films.add(film);
+    }
+
+    public void remove(Film film) {
+        if (!films.contains(film)) {
+            throw new IllegalArgumentException("Film not found");
+        }
+        films.remove(film);
+    }
+
+    public void printFilms() {
+        System.out.println(this.getClass().getName() + " contains such films: ");
+        for (Film film : films) {
+            System.out.println(film);
+        }
+    }
+}
