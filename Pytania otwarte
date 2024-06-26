@@ -1,0 +1,9 @@
+Interfejsy, zarÃ³wno jak i klasy abstrakcyjne w Javie sÄ… uÅ¼ywane do wymuszania na innych klasach podrzÄ™dnych struktury z tychÅ¼e nadrzÄ™dnych klas/interfejsÃ³w.
+Interfesjy wymuszajÄ… na klasie po sobie dziedziczÄ…cej wykorzystanie danych metod. UmoÅ¼liwiajÄ… rÃ³wnieÅ¼ wielodziedziczenie.
+PrzykÅ‚ady uÅ¼ycia interfejsÃ³w, to: definiowanie public API's, tworzenie wielu klas, ktÃ³re dziedziczÄ… po tym samym interfejsie.
+Klasy abstrakcyjne sÅ‚uÅ¼Ä… klasom sobie podrzÄ™dnym jako klasa bazowa, ktÃ³ra nie ma moÅ¼liwoÅ›ci bycia instancjonowanÄ…. Klasy abstrakcyjne wymuszajÄ… na podklasie posiadanie danych atrybutÃ³w, czasami rÃ³wnieÅ¼ metod (overriding).
+PrzykÅ‚ady uÅ¼ycia klas abstrakcyjnych, to: pisanie podobnych klas bazowych (np. Animal -> Cat && Dog // Vehicle -> Car, Motorcycle).
+RÃ³Å¼nice miÄ™dzy interfejsem, a klasÄ… abstrakcyjnÄ…:
+1. klasa moÅ¼e implementowaÄ‡ wiele interfejsÃ³w, ale dziedziczyÄ‡ po tylko jednej klasie abstrakcyjnej,
+2. klasy abstrakcyjne mogÄ… mieÄ‡ atrybuty, interfejsy tylko metody.
+InterfejsÃ³w naleÅ¼y uÅ¼ywaÄ‡, gdy potrzebuje siÄ™ wielokrotnego dziedziczenia, klas abstrakcyjnych natomiast, gdy klasy dzielÄ… wiele wspÃ³lnych zachowaÅ„ i atrybutÃ³w.
