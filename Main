@@ -1,0 +1,34 @@
+public class Main {
+    public static void main(String[] args) {
+        Film film1 = new Film("Sth", "Fantasy", 2024);
+        Film film2 = new Film("SthNext", "Romance", 2020);
+        Film film3 = new Film("SthNextNext", "Anime", 1998);
+        Serial serial = new Serial("SomeSerial", "Horror", 1934, 89);
+        BankAccount bankAccount = new BankAccount("12543758687", 946.45);
+        FilmLibrary filmLibrary = new FilmLibrary();
+        film1.open();
+        film2.open();
+        film3.open();
+        serial.open();
+        System.out.println(film1);
+        System.out.println(film2);
+        System.out.println(film3);
+        System.out.println(serial);
+        serial.addEpisode();
+        serial.addEpisode();
+        System.out.println(serial);
+        bankAccount.payment(3450.45);
+        bankAccount.payout(3450.45);
+        //bankAccount.payout(9050.45);
+        filmLibrary.add(film1);
+        //filmLibrary.remove(film2);
+        filmLibrary.add(film2);
+        filmLibrary.remove(film2);
+        filmLibrary.add(film3);
+        filmLibrary.add(serial);
+        //filmLibrary.add(film3);
+        filmLibrary.printFilms();
+        film1.pause();
+        film3.pause();
+    }
+}
